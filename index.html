@@ -20,23 +20,48 @@
 		<script src="assets/js/dsl.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script src="assets/js/app.js" type="text/javascript" charset="utf-8"></script>
+
+     <script type="text/javascript" charset="utf-8">
+
+    // Set an event to wait for PhoneGap to load
+    //
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // PhoneGap is loaded and Ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // Display `Position` properties from the geolocation
+    //
+    function onSuccess(position) {
+        var div = document.getElementById('myDiv');
+
+        div.innerHTML = 'Latitude: '             + position.coords.latitude  + '<br/>' +
+                        'Longitude: '            + position.coords.longitude + '<br/>' +
+                        'Altitude: '             + position.coords.altitude  + '<br/>' +
+                        'Accuracy: '             + position.coords.accuracy  + '<br/>' +
+                        'Altitude Accuracy: '    + position.coords.altitudeAccuracy  + '<br/>' +
+                        'Heading: '              + position.coords.heading   + '<br/>' +
+                        'Speed: '                + position.coords.speed     + '<br/>';
+    }
+
+    // Show an alert if there is a problem getting the geolocation
+    //
+    function onError() {
+        alert('onError!');
+    }
+
+    </script> 
+
 		
 	</head>
-	<body>
+	<body onload="onLoad()">
 <div id="title_bar">
-<script type="text/javascript" charset="utf-8">
-navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
-
-  function foundLocation(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    var userLocation = lat + ', ' + lon;
-    document.write(userLocation);
-  }
-    function noLocation() {
-    document.write("Ei toimi!");
-    }
-</script>
+<div id="myDiv"></div>
 </div>
 
 
