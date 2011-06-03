@@ -21,7 +21,15 @@
 		
 		
 
-     <script type="text/javascript" charset="utf-8">
+   <style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style>
+    <script type="text/javascript" charset="utf-8">
 
     // Set an event to wait for PhoneGap to load
     //
@@ -39,31 +47,1279 @@
     //
     function onSuccess(position) {
         var div = document.getElementById('myDiv');
-
-        div.innerHTML = 'Latitude: '             + position.coords.latitude  + '<br/>' +
-                        'Longitude: '            + position.coords.longitude + '<br/>' +
-                        'Altitude: '             + position.coords.altitude  + '<br/>' +
-                        'Accuracy: '             + position.coords.accuracy  + '<br/>' +
-                        'Altitude Accuracy: '    + position.coords.altitudeAccuracy  + '<br/>' +
-                        'Heading: '              + position.coords.heading   + '<br/>' +
-                        'Speed: '                + position.coords.speed     + '<br/>';
+		var latituudi=''+position.coords.latitude;
+		var longituudi=''+position.coords.longitude;
+		latituudi=latituudi.replace(/[^\d]/, '');
+		longituudi=longituudi.replace(/[^\d]/, '');
+        		appendWeatherLocation(latituudi, longituudi);
+		
+		
     }
 
+	function appendWeatherLocation(latituudi, longituudi) {
+		var scriptElement = document.createElement('script');
+		scriptElement.src = 'http://www.kalassa.net/ottikalenteri/?lat='
+		+ latituudi +'&lng='+ longituudi;
+		
+		document.body.appendChild(scriptElement);
+		
+	}
+	
+	function callback(param) {
+		
+		divi = document.getElementById('jeejee');
+		divi.innerHTML=param;
+	}
+	
+	
     // Show an alert if there is a problem getting the geolocation
     //
     function onError() {
         alert('onError!');
     }
-
-    </script> 
-
+    </script>  
 		
 	</head>
 	<body onload="onLoad()">
-<div id="title_bar">
-<div id="myDiv"></div>
-</div>
+  
+  
+  
+  <div data-role="page" data-theme="b" id="jqm-home" background="images/puutausta.jpg">
+  
 
 
-	</body>
+
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="20">
+  <tr height="180">
+    <td  bgcolor="#ecfee6"> 
+	<b>KALASTAJAN OTTIKALENTERI </b><br><br>
+	   <script type="text/javascript">
+	
+<!--
+var currentTime = new Date()
+var month = currentTime.getMonth() + 1
+var day = currentTime.getDate()
+var year = currentTime.getFullYear()
+var aika = day + "." + month + "." + year
+document.write('<center><b>Tänään '+aika+'</b><br><br>')
+if (aika =="16.5.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="17.5.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="18.5.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="19.5.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="20.5.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="21.5.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="22.5.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="23.5.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="24.5.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="25.5.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="26.5.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="27.5.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="28.5.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.5.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="30.5.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="31.5.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="1.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="2.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="3.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="4.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="5.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="6.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="7.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="8.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="9.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="10.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="11.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="12.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="13.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="14.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="15.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="16.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="17.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="18.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="19.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="20.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="21.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="22.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="23.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="24.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="25.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="26.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="27.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="28.6.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.6.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="30.6.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="1.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="2.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="3.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="4.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="5.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="6.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="7.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="8.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="9.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="10.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="11.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="12.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="13.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="14.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="15.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="16.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="17.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="18.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="19.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="20.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="21.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="22.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="23.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="24.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="25.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="26.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="27.7.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="28.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.7.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="30.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="31.7.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="1.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="2.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="3.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="4.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="5.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="6.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="7.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="8.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="9.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="10.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="11.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="12.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="13.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="14.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="15.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="16.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="17.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="18.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="19.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="20.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="21.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="22.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="23.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="24.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="25.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="26.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="27.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="28.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.8.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="30.8.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="31.8.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="1.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="2.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="3.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="4.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="5.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="6.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="7.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="8.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="9.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="10.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="11.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="12.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="13.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="14.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="15.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="16.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="17.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="18.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="19.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="20.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="21.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="22.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="23.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="24.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="25.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="26.9.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="27.9.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="28.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="30.9.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="1.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="2.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="3.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="4.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="5.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="6.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="7.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="8.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="9.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="10.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="11.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="12.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="13.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="14.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="15.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="16.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="17.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="18.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="19.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="20.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="21.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="22.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="23.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="24.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="25.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="26.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="27.10.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="28.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="30.10.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="31.10.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="1.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="2.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="3.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="4.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="5.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="6.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="7.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="8.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="9.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="10.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="11.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="12.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="13.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="14.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="15.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="16.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="17.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="18.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="19.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="20.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="21.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="22.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="23.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="24.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="25.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="26.11.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="27.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="28.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="29.11.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="30.11.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="1.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="2.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="3.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="4.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="5.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="6.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="7.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="8.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="9.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="10.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="11.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="12.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="13.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="14.12.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="15.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="16.12.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="17.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="18.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="19.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="20.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="21.12.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="22.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="23.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="24.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="25.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="26.12.2011"){
+document.write("<b><img src='images/vahan.jpg'></b>")
+}
+
+if (aika =="27.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="28.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="29.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+if (aika =="30.12.2011"){
+document.write("<b><img src='images/syo.jpg'></b>")
+}
+
+if (aika =="31.12.2011"){
+document.write("<b><img src='images/ei.jpg'></b>")
+}
+
+
+
+
+
+//-->
+</script></center>
+&nbsp;
+<div id="jeejee"></div>
+</td>
+  </tr>
+</table>
+
+  
+  
+
+	
+	<div data-role="content"> 
+		
+<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+ 			<li data-role="list-divider">Toukokuu</li> 
+<li>16 Kala ei liiku ja syönti on huonoa!</li>
+<li>17 Kalan syönti on satunnaista.</li>
+
+<li>18 Kala liikkuu, syönti on hyvää!</li>
+<li>19 Kala ei liiku ja syönti on huonoa!</li>
+<li>20 Kala ei liiku ja syönti on huonoa!</li>
+<li>21 Kala liikkuu, syönti on hyvää!</li>
+<li>22 Kalan syönti on satunnaista.</li>
+<li>23 Kala liikkuu, syönti on hyvää!</li>
+<li>24 Kala ei liiku ja syönti on huonoa!</li>
+<li>25 Kalan syönti on satunnaista.</li>
+<li>26 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>27 Kala liikkuu, syönti on hyvää!</li>
+<li>28 Kala liikkuu, syönti on hyvää!</li>
+<li>29 Kala liikkuu, syönti on hyvää!</li>
+<li>30 Kala liikkuu, syönti on hyvää!</li>
+<li>31 Kalan syönti on satunnaista.</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Kesäkuu</li> 
+<li>1 Kala ei liiku ja syönti on huonoa!</li>
+<li>2 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>3 Kala liikkuu, syönti on hyvää!</li>
+<li>4 Kalan syönti on satunnaista.</li>
+<li>5 Kala liikkuu, syönti on hyvää!</li>
+<li>6 Kalan syönti on satunnaista.</li>
+<li>7 Kala ei liiku ja syönti on huonoa!</li>
+<li>8 Kala liikkuu, syönti on hyvää!</li>
+<li>9 Kala ei liiku ja syönti on huonoa!</li>
+<li>10 Kalan syönti on satunnaista.</li>
+<li>11 Kala liikkuu, syönti on hyvää!</li>
+
+<li>12 Kalan syönti on satunnaista.</li>
+<li>13 Kalan syönti on satunnaista.</li>
+<li>14 Kala ei liiku ja syönti on huonoa!</li>
+<li>15 Kala ei liiku ja syönti on huonoa!</li>
+<li>16 Kalan syönti on satunnaista.</li>
+<li>17 Kala liikkuu, syönti on hyvää!</li>
+<li>18 Kala liikkuu, syönti on hyvää!</li>
+<li>19 Kala liikkuu, syönti on hyvää!</li>
+<li>20 Kala liikkuu, syönti on hyvää!</li>
+
+<li>21 Kala liikkuu, syönti on hyvää!</li>
+<li>22 Kala ei liiku ja syönti on huonoa!</li>
+<li>23 Kalan syönti on satunnaista.</li>
+<li>24 Kala ei liiku ja syönti on huonoa!</li>
+<li>25 Kalan syönti on satunnaista.</li>
+<li>26 Kala liikkuu, syönti on hyvää!</li>
+<li>27 Kala liikkuu, syönti on hyvää!</li>
+<li>28 Kalan syönti on satunnaista.</li>
+<li>29 Kala liikkuu, syönti on hyvää!</li>
+
+<li>30 Kala liikkuu, syönti on hyvää!</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Heinäkuu</li> 
+<li>1 Kala liikkuu, syönti on hyvää!</li>
+<li>2 Kala liikkuu, syönti on hyvää!</li>
+<li>3 Kala ei liiku ja syönti on huonoa!</li>
+<li>4 Kalan syönti on satunnaista.</li>
+<li>5 Kalan syönti on satunnaista.</li>
+<li>6 Kala liikkuu, syönti on hyvää!</li>
+
+<li>7 Kala ei liiku ja syönti on huonoa!</li>
+<li>8 Kala liikkuu, syönti on hyvää!</li>
+<li>9 Kalan syönti on satunnaista.</li>
+<li>10 Kalan syönti on satunnaista.</li>
+<li>11 Kala ei liiku ja syönti on huonoa!</li>
+<li>12 Kalan syönti on satunnaista.</li>
+<li>13 Kala liikkuu, syönti on hyvää!</li>
+<li>14 Kalan syönti on satunnaista.</li>
+
+<li>15 Kalan syönti on satunnaista.</li>
+<li>16 Kala liikkuu, syönti on hyvää!</li>
+<li>17 Kala ei liiku ja syönti on huonoa!</li>
+<li>18 Kala ei liiku ja syönti on huonoa!</li>
+<li>19 Kala liikkuu, syönti on hyvää!</li>
+<li>20 Kala liikkuu, syönti on hyvää!</li>
+<li>21 Kala ei liiku ja syönti on huonoa!</li>
+<li>22 Kala liikkuu, syönti on hyvää!</li>
+<li>23 Kala liikkuu, syönti on hyvää!</li>
+
+<li>24 Kalan syönti on satunnaista.</li>
+<li>25 Kala liikkuu, syönti on hyvää!</li>
+<li>26 Kalan syönti on satunnaista.</li>
+<li>27 Kalan syönti on satunnaista.</li>
+<li>28 Kala liikkuu, syönti on hyvää!</li>
+<li>29 Kala liikkuu, syönti on hyvää!</li>
+<li>30 Kala ei liiku ja syönti on huonoa!</li>
+<li>31 Kala liikkuu, syönti on hyvää!</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Elokuu</li> 
+
+<li>1 Kala liikkuu, syönti on hyvää!</li>
+<li>2 Kala ei liiku ja syönti on huonoa!</li>
+<li>3 Kala liikkuu, syönti on hyvää!</li>
+<li>4 Kala ei liiku ja syönti on huonoa!</li>
+<li>5 Kala liikkuu, syönti on hyvää!</li>
+<li>6 Kalan syönti on satunnaista.</li>
+<li>7 Kalan syönti on satunnaista.</li>
+<li>8 Kalan syönti on satunnaista.</li>
+<li>9 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>10 Kala liikkuu, syönti on hyvää!</li>
+<li>11 Kala liikkuu, syönti on hyvää!</li>
+<li>12 Kalan syönti on satunnaista.</li>
+<li>13 Kala liikkuu, syönti on hyvää!</li>
+<li>14 Kalan syönti on satunnaista.</li>
+<li>15 Kala liikkuu, syönti on hyvää!</li>
+<li>16 Kala liikkuu, syönti on hyvää!</li>
+<li>17 Kalan syönti on satunnaista.</li>
+<li>18 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>19 Kalan syönti on satunnaista.</li>
+<li>20 Kala ei liiku ja syönti on huonoa!</li>
+<li>21 Kala ei liiku ja syönti on huonoa!</li>
+<li>22 Kala ei liiku ja syönti on huonoa!</li>
+<li>23 Kala ei liiku ja syönti on huonoa!</li>
+<li>24 Kala liikkuu, syönti on hyvää!</li>
+<li>25 Kala ei liiku ja syönti on huonoa!</li>
+<li>26 Kalan syönti on satunnaista.</li>
+<li>27 Kalan syönti on satunnaista.</li>
+
+<li>28 Kala ei liiku ja syönti on huonoa!</li>
+<li>29 Kalan syönti on satunnaista.</li>
+<li>30 Kala liikkuu, syönti on hyvää!</li>
+<li>31 Kala liikkuu, syönti on hyvää!</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Syyskuu</li> 
+<li>1 Kala ei liiku ja syönti on huonoa!</li>
+<li>2 Kala ei liiku ja syönti on huonoa!</li>
+<li>3 Kalan syönti on satunnaista.</li>
+
+<li>4 Kalan syönti on satunnaista.</li>
+<li>5 Kala liikkuu, syönti on hyvää!</li>
+<li>6 Kala ei liiku ja syönti on huonoa!</li>
+<li>7 Kala liikkuu, syönti on hyvää!</li>
+<li>8 Kalan syönti on satunnaista.</li>
+<li>9 Kala ei liiku ja syönti on huonoa!</li>
+<li>10 Kala liikkuu, syönti on hyvää!</li>
+<li>11 Kalan syönti on satunnaista.</li>
+
+<li>12 Kala liikkuu, syönti on hyvää!</li>
+<li>13 Kalan syönti on satunnaista.</li>
+<li>14 Kala liikkuu, syönti on hyvää!</li>
+<li>15 Kala liikkuu, syönti on hyvää!</li>
+<li>16 Kala ei liiku ja syönti on huonoa!</li>
+<li>17 Kala ei liiku ja syönti on huonoa!</li>
+<li>18 Kala liikkuu, syönti on hyvää!</li>
+<li>19 Kala liikkuu, syönti on hyvää!</li>
+<li>20 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>21 Kala ei liiku ja syönti on huonoa!</li>
+<li>22 Kala ei liiku ja syönti on huonoa!</li>
+<li>23 Kala ei liiku ja syönti on huonoa!</li>
+<li>24 Kala ei liiku ja syönti on huonoa!</li>
+<li>25 Kala ei liiku ja syönti on huonoa!</li>
+<li>26 Kala liikkuu, syönti on hyvää!</li>
+<li>27 Kalan syönti on satunnaista.</li>
+<li>28 Kala ei liiku ja syönti on huonoa!</li>
+<li>29 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>30 Kala ei liiku ja syönti on huonoa!</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Lokakuu</li> 
+<li>1 Kala liikkuu, syönti on hyvää!</li>
+<li>2 Kala ei liiku ja syönti on huonoa!</li>
+<li>3 Kala ei liiku ja syönti on huonoa!</li>
+<li>4 Kalan syönti on satunnaista.</li>
+<li>5 Kalan syönti on satunnaista.</li>
+<li>6 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>7 Kalan syönti on satunnaista.</li>
+<li>8 Kalan syönti on satunnaista.</li>
+<li>9 Kala liikkuu, syönti on hyvää!</li>
+<li>10 Kala liikkuu, syönti on hyvää!</li>
+<li>11 Kala ei liiku ja syönti on huonoa!</li>
+<li>12 Kala ei liiku ja syönti on huonoa!</li>
+<li>13 Kalan syönti on satunnaista.</li>
+<li>14 Kala liikkuu, syönti on hyvää!</li>
+<li>15 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>16 Kala ei liiku ja syönti on huonoa!</li>
+<li>17 Kala liikkuu, syönti on hyvää!</li>
+<li>18 Kala ei liiku ja syönti on huonoa!</li>
+<li>19 Kala ei liiku ja syönti on huonoa!</li>
+<li>20 Kala liikkuu, syönti on hyvää!</li>
+<li>21 Kalan syönti on satunnaista.</li>
+<li>22 Kala ei liiku ja syönti on huonoa!</li>
+<li>23 Kala liikkuu, syönti on hyvää!</li>
+<li>24 Kala liikkuu, syönti on hyvää!</li>
+
+<li>25 Kala ei liiku ja syönti on huonoa!</li>
+<li>26 Kala liikkuu, syönti on hyvää!</li>
+<li>27 Kalan syönti on satunnaista.</li>
+<li>28 Kala liikkuu, syönti on hyvää!</li>
+<li>29 Kala ei liiku ja syönti on huonoa!</li>
+<li>30 Kala liikkuu, syönti on hyvää!</li>
+<li>31 Kala liikkuu, syönti on hyvää!</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Marraskuu</li> 
+
+<li>1 Kala ei liiku ja syönti on huonoa!</li>
+<li>2 Kala ei liiku ja syönti on huonoa!</li>
+<li>3 Kala ei liiku ja syönti on huonoa!</li>
+<li>4 Kalan syönti on satunnaista.</li>
+<li>5 Kala liikkuu, syönti on hyvää!</li>
+<li>6 Kalan syönti on satunnaista.</li>
+<li>7 Kala ei liiku ja syönti on huonoa!</li>
+<li>8 Kala ei liiku ja syönti on huonoa!</li>
+<li>9 Kalan syönti on satunnaista.</li>
+
+<li>10 Kala liikkuu, syönti on hyvää!</li>
+<li>11 Kalan syönti on satunnaista.</li>
+<li>12 Kalan syönti on satunnaista.</li>
+<li>13 Kalan syönti on satunnaista.</li>
+<li>14 Kala ei liiku ja syönti on huonoa!</li>
+<li>15 Kalan syönti on satunnaista.</li>
+<li>16 Kala liikkuu, syönti on hyvää!</li>
+<li>17 Kala ei liiku ja syönti on huonoa!</li>
+<li>18 Kala liikkuu, syönti on hyvää!</li>
+
+<li>19 Kala liikkuu, syönti on hyvää!</li>
+<li>20 Kala liikkuu, syönti on hyvää!</li>
+<li>21 Kala ei liiku ja syönti on huonoa!</li>
+<li>22 Kala ei liiku ja syönti on huonoa!</li>
+<li>23 Kalan syönti on satunnaista.</li>
+<li>24 Kala liikkuu, syönti on hyvää!</li>
+<li>25 Kala ei liiku ja syönti on huonoa!</li>
+<li>26 Kalan syönti on satunnaista.</li>
+<li>27 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>28 Kala ei liiku ja syönti on huonoa!</li>
+<li>29 Kalan syönti on satunnaista.</li>
+<li>30 Kala ei liiku ja syönti on huonoa!</li>
+</ul><ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b"> 			<li data-role="list-divider">Joulukuu</li> 
+<li>1 Kala liikkuu, syönti on hyvää!</li>
+<li>2 Kalan syönti on satunnaista.</li>
+<li>3 Kala ei liiku ja syönti on huonoa!</li>
+<li>4 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>5 Kala ei liiku ja syönti on huonoa!</li>
+<li>6 Kala liikkuu, syönti on hyvää!</li>
+<li>7 Kala liikkuu, syönti on hyvää!</li>
+<li>8 Kala ei liiku ja syönti on huonoa!</li>
+<li>9 Kala ei liiku ja syönti on huonoa!</li>
+<li>10 Kala ei liiku ja syönti on huonoa!</li>
+<li>11 Kala ei liiku ja syönti on huonoa!</li>
+<li>12 Kalan syönti on satunnaista.</li>
+<li>13 Kala liikkuu, syönti on hyvää!</li>
+
+<li>14 Kalan syönti on satunnaista.</li>
+<li>15 Kalan syönti on satunnaista.</li>
+<li>16 Kala ei liiku ja syönti on huonoa!</li>
+<li>17 Kala ei liiku ja syönti on huonoa!</li>
+<li>18 Kala liikkuu, syönti on hyvää!</li>
+<li>19 Kala ei liiku ja syönti on huonoa!</li>
+<li>20 Kala liikkuu, syönti on hyvää!</li>
+<li>21 Kalan syönti on satunnaista.</li>
+<li>22 Kala ei liiku ja syönti on huonoa!</li>
+
+<li>23 Kala ei liiku ja syönti on huonoa!</li>
+<li>24 Kala ei liiku ja syönti on huonoa!</li>
+<li>25 Kala liikkuu, syönti on hyvää!</li>
+<li>26 Kalan syönti on satunnaista.</li>
+<li>27 Kalan syönti on satunnaista.</li>
+<li>28 Kala ei liiku ja syönti on huonoa!</li>
+<li>29 Kalan syönti on satunnaista.</li>
+<li>30 Kala ei liiku ja syönti on huonoa!</li>
+<li>31 Kala ei liiku ja syönti on huonoa!</li>
+
+</ul>
+
+
+
+
+
+	
+	</div>     
+ 
+</div> 
+  
+  
+  
+  </body>
 </html>
